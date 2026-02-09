@@ -1,0 +1,5 @@
+{
+  "name": "SonicGraph",
+  "description": "A visual modular audio synthesizer and sequencer allowing users to compose music by connecting nodes in a graph.",
+  "requestFramePermissions": []
+}
