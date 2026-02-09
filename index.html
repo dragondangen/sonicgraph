@@ -6,54 +6,34 @@
     <title>SonicGraph - Visual Audio Workstation</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              gray: {
-                750: '#2d3748',
-                850: '#1a202c',
-                950: '#0d1117',
+      // Safely configure tailwind only if it loaded successfully
+      if (typeof tailwind !== 'undefined') {
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                gray: {
+                  750: '#2d3748',
+                  850: '#1a202c',
+                  950: '#0d1117',
+                },
+                accent: {
+                  cyan: '#06b6d4',
+                  purple: '#8b5cf6',
+                  pink: '#ec4899',
+                }
               },
-              accent: {
-                cyan: '#06b6d4',
-                purple: '#8b5cf6',
-                pink: '#ec4899',
+              fontFamily: {
+                mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
               }
-            },
-            fontFamily: {
-              mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
             }
           }
         }
+      } else {
+        console.warn('Tailwind CSS failed to load. The application may appear unstyled.');
       }
     </script>
-    <style>
-      body {
-        background-color: #0d1117;
-        color: #e2e8f0;
-        overflow: hidden;
-      }
-      /* Custom Scrollbar */
-      ::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #1a202c; 
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #4a5568; 
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #718096; 
-      }
-      .node-shadow {
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
-      }
-    </style>
-  <script type="importmap">
+    <script type="importmap">
 {
   "imports": {
     "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
